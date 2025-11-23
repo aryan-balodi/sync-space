@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useRef, useState, useEffect } from "react";
-import useMousePosition from "@/utils/useMousePosition";
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import useMousePosition from '@/utils/useMousePosition';
 
 type SpotlightProps = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type SpotlightProps = {
 
 export default function Spotlight({
   children,
-  className = "",
+  className = '',
 }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePosition = useMousePosition();
@@ -18,36 +18,7 @@ export default function Spotlight({
   const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const [boxes, setBoxes] = useState<Array<HTMLElement>>([]);
 
-  useEffect(() => {
-    containerRef.current &&
-      setBoxes(
-        Array.from(containerRef.current.children).map(
-          (el) => el as HTMLElement,
-        ),
-      );
-  }, []);
-
-  useEffect(() => {
-    initContainer();
-    window.addEventListener("resize", initContainer);
-
-    return () => {
-      window.removeEventListener("resize", initContainer);
-    };
-  }, [boxes]);
-
-  useEffect(() => {
-    onMouseMove();
-  }, [mousePosition]);
-
-  const initContainer = () => {
-    if (containerRef.current) {
-      containerSize.current.w = containerRef.current.offsetWidth;
-      containerSize.current.h = containerRef.current.offsetHeight;
-    }
-  };
-
-  const onMouseMove = () => {
+  const onMouseMove = useCallback(() => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const { w, h } = containerSize.current;
@@ -62,12 +33,42 @@ export default function Spotlight({
             -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
           const boxY =
             -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
-          box.style.setProperty("--mouse-x", `${boxX}px`);
-          box.style.setProperty("--mouse-y", `${boxY}px`);
+          box.style.setProperty('--mouse-x', `${boxX}px`);
+          box.style.setProperty('--mouse-y', `${boxY}px`);
         });
       }
     }
+  }, [mousePosition, boxes]);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setBoxes(
+        Array.from(containerRef.current.children).map((el) => el as HTMLElement)
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    initContainer();
+    window.addEventListener('resize', initContainer);
+
+    return () => {
+      window.removeEventListener('resize', initContainer);
+    };
+  }, [boxes]);
+
+  useEffect(() => {
+    onMouseMove();
+  }, [mousePosition, boxes, onMouseMove]);
+
+  const initContainer = () => {
+    if (containerRef.current) {
+      containerSize.current.w = containerRef.current.offsetWidth;
+      containerSize.current.h = containerRef.current.offsetHeight;
+    }
   };
+
+
 
   return (
     <div className={className} ref={containerRef}>

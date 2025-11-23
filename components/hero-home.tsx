@@ -1,5 +1,5 @@
-import VideoThumb from "@/public/images/hero-image-01.jpg";
-import ModalVideo from "@/components/modal-video";
+import VideoThumb from '@/public/images/hero-image-01.jpg';
+import ModalVideo from '@/components/modal-video';
 
 export default function HeroHome() {
   return (
@@ -10,10 +10,11 @@ export default function HeroHome() {
           {/* Section header */}
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,#d9601f,#393637,#FFFFFF,#d9601f,#393637)] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
+              className="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,#d9601f,#393637,#FFFFFF,#d9601f,#393637)] bg-[length:200%_auto] bg-clip-text pb-5 text-4xl font-semibold text-transparent md:text-5xl"
               data-aos="fade-up"
             >
-              Book Your Appointment with Professors Effortlessly at Manipal University Jaipur
+              Book Your Appointment with Professors Effortlessly at Manipal
+              University Jaipur
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -21,12 +22,14 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Choose your preferred professor and our seamless tool schedules your appointment and sends a confirmation email, making the booking process simple and efficient.
+                Choose your preferred professor and our seamless tool schedules
+                your appointment and sends a confirmation email, making the
+                booking process simple and efficient.
               </p>
               <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
-                    className="btn group mb-4 w-full bg-gradient-to-t from-[#d9601f] to-[#393637] text-white shadow-md hover:scale-105 transition-transform sm:mb-0 sm:w-auto"
+                    className="btn group mb-4 w-full bg-gradient-to-t from-[#d9601f] to-[#393637] text-white shadow-md transition-transform hover:scale-105 sm:mb-0 sm:w-auto"
                     href="#0"
                   >
                     <span className="relative inline-flex items-center">
@@ -39,7 +42,7 @@ export default function HeroHome() {
                 </div>
                 <div data-aos="fade-up" data-aos-delay={600}>
                   <a
-                    className="btn relative w-full bg-gradient-to-b from-[#393637] to-[#393637]/60 text-gray-300 hover:scale-105 transition-transform sm:ml-4 sm:w-auto"
+                    className="btn relative w-full bg-gradient-to-b from-[#393637] to-[#393637]/60 text-gray-300 transition-transform hover:scale-105 sm:ml-4 sm:w-auto"
                     href="#0"
                   >
                     Learn More

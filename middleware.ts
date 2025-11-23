@@ -1,16 +1,16 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
   const pathname = url.pathname;
 
   // Check for authentication token in cookies
-  const authToken = req.cookies.get("authToken");
+  const isAuthenticated = Boolean(req.cookies.get('authToken')?.value);
 
   // Redirect logged-in users away from /signin and /signup
-  if (authToken && (pathname === "/signin" || pathname === "/signup")) {
-    url.pathname = "/appointment"; // Redirect to default page
+  if (isAuthenticated && (pathname === '/signin' || pathname === '/signup')) {
+    url.pathname = '/appointment'; // Redirect to default page
     return NextResponse.redirect(url);
   }
 
@@ -19,5 +19,5 @@ export function middleware(req: NextRequest) {
 
 // Apply middleware only to specific routes
 export const config = {
-  matcher: ["/signin", "/signup"],
+  matcher: ['/signin', '/signup'],
 };

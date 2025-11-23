@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from 'react';
 
 const useMasonry = () => {
   const masonryContainer = useRef<HTMLDivElement | null>(null);
@@ -19,7 +19,7 @@ const useMasonry = () => {
         gapSize = parseInt(
           window
             .getComputedStyle(masonryContainer.current)
-            .getPropertyValue("grid-row-gap"),
+            .getPropertyValue('grid-row-gap')
         );
       }
       items.forEach((el) => {
@@ -27,13 +27,13 @@ const useMasonry = () => {
         let previous = el.previousSibling;
         while (previous) {
           if (previous.nodeType === 1) {
-            el.style.marginTop = "0";
+            el.style.marginTop = '0';
             if (
               previous instanceof HTMLElement &&
               elementLeft(previous) === elementLeft(el)
             ) {
               el.style.marginTop =
-                -(elementTop(el) - elementBottom(previous) - gapSize) + "px";
+                -(elementTop(el) - elementBottom(previous) - gapSize) + 'px';
               break;
             }
           }
@@ -43,9 +43,9 @@ const useMasonry = () => {
     };
 
     handleMasonry();
-    window.addEventListener("resize", handleMasonry);
+    window.addEventListener('resize', handleMasonry);
     return () => {
-      window.removeEventListener("resize", handleMasonry);
+      window.removeEventListener('resize', handleMasonry);
     };
   }, [items]);
 

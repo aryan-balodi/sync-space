@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState, useRef } from "react";
-import type { StaticImageData } from "next/image";
-import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
-import Image from "next/image";
-import SecondaryIllustration from "@/public/images/secondary-illustration.svg";
+import { useState, useRef } from 'react';
+import type { StaticImageData } from 'next/image';
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
+import Image from 'next/image';
+import SecondaryIllustration from '@/public/images/secondary-illustration.svg';
 
 interface ModalVideoProps {
   thumb: StaticImageData;
@@ -93,7 +93,7 @@ export default function ModalVideo({
                 </linearGradient>
               </defs>
             </svg>
-            <span className="text-sm font-medium leading-tight text-gray-300">
+            <span className="text-sm leading-tight font-medium text-gray-300">
               Watch Demo
               <span className="text-gray-600"> - </span>
               3:47

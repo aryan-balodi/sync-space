@@ -1,5 +1,4 @@
-import PageIllustration from "@/components/page-illustration";
-
+import PageIllustration from '@/components/page-illustration';
 
 export default function AuthLayout({
   children,
