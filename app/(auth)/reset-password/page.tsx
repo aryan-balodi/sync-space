@@ -3,8 +3,6 @@ export const metadata = {
   description: 'Page description',
 };
 
-
-
 export default function ResetPassword() {
   return (
     <section>

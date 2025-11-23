@@ -32,12 +32,14 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 ### Installation
 
 1.  **Clone the repository**:
+
     ```bash
     git clone https://github.com/your-username/sync-space.git
     cd sync-space
     ```
 
 2.  **Install dependencies**:
+
     ```bash
     npm install
     # or
@@ -48,7 +50,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 3.  **Set up Environment Variables**:
     Create a `.env.local` file in the root directory and add necessary environment variables (e.g., Firebase config).
-    *(Note: Refer to `.env.example` if available)*
+    _(Note: Refer to `.env.example` if available)_
 
 ### Running the Application
 

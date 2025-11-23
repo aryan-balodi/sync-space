@@ -208,12 +208,13 @@ export default function AppointmentRequestsPage() {
                 </p>
 
                 <span
-                  className={`rounded-full px-2 py-1 text-xs font-semibold ${req.status === 'pending'
-                    ? 'bg-yellow-100 text-yellow-700'
-                    : req.status === 'approved'
-                      ? 'bg-green-100 text-green-700'
-                      : 'bg-red-100 text-red-700'
-                    }`}
+                  className={`rounded-full px-2 py-1 text-xs font-semibold ${
+                    req.status === 'pending'
+                      ? 'bg-yellow-100 text-yellow-700'
+                      : req.status === 'approved'
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-red-100 text-red-700'
+                  }`}
                 >
                   {req.status.toUpperCase()}
                 </span>

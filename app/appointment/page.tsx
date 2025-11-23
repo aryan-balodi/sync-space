@@ -34,8 +34,6 @@ const AppointmentBookingPage = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-
-
         // Fetch user role from Firestore
         const userRef = doc(db, 'users', user.uid);
         const userDoc = await getDoc(userRef);

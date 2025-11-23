@@ -68,8 +68,6 @@ export default function Spotlight({
     }
   };
 
-
-
   return (
     <div className={className} ref={containerRef}>
       {children}
